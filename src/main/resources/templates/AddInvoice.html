@@ -17,7 +17,6 @@
     		<div class="panel-heading">
     			<div class="clearfix">
 	   				<h1 class="panel-title aw-invoice-panel">New Invoice</h1>
-	   				<a class="btn btn-link aw-link-panel" th:href="@{/invoices}">Back to Invoices</a>
 	   			</div>
     		</div>
     		
@@ -34,8 +33,7 @@
 					<label for="duedate" class="col-sm-2 control-label">Due date</label>
 					<div class="col-sm-2">  
 						<input type="text" class="form-control"	id="duedate" th:field="*{duedate}"
-							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
-							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
+							data-provide="datepicker" data-date-format="dd/mm/yyyy"	data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
 					</div>
 				</div>
 				<div class="form-group" th:classappend="${#fields.hasErrors('total')} ? has-error">

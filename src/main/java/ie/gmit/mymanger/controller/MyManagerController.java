@@ -38,9 +38,9 @@ public class MyManagerController {
 	}
 	
 	
-	@RequestMapping("/initial")
-	public ModelAndView initial() {
-		ModelAndView mv = new ModelAndView("index");
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}
 	
