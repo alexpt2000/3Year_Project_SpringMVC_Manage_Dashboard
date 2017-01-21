@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutDefault">
+    
+<head>
+	<title>MyManager</title>
+</head>
+
+<section layout:fragment="content">
+	<div layout:include="Messages"></div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="clearfix">
+	   			<h1 class="panel-title aw-invoice-panel">Search Customer</h1>
+	   			<a class="btn btn-link aw-link-panel" th:href="@{/invoices/newinvoice}">New Invoice</a>
+	   		</div>
+	   	</div>
+	   	
+	   	<div class="panel-body">
+	   		<form method="GET" class="form-horizontal" th:action="@{/invoices}" th:object="${filter}">
+	   			<div class="form-group">
+	   				<div class="col-sm-4">
+	   					<div class="input-group">
+	   						<input class="form-control" placeholder="Search Customer"
+	   							autofocus="autofocus" th:field="*{customer}"></input>
+	   						<span class="input-group-btn">
+	   							<button type="submit" class="btn btn-default">
+	   								<i class="glyphicon glyphicon-search"></i>
+	   							</button>
+	   						</span>
+	   					</div>
+	   				</div>
+	   			</div>
+	   		</form>
+	   		
+	   		<div class="table-responsive">
+		   		<table class="table table-bordered table-striped">
+		   			<thead>
+		   				<tr>
+		   					<th class="text-center col-md-1">#</th>
+		   					<th>Customer</th>
+		   					<th class="text-center col-md-2">Due date</th>
+		   					<th class="text-right col-md-2">Total</th>
+		   					<th class="text-center col-md-2">Status</th>
+		   					<th class="col-md-1"></th>
+		   				</tr>
+		   			</thead>
+		   			<tbody>
+		   				<tr th:each="invoice : ${invoices}">
+		   					<td class="text-center" th:text="${invoice.code}">1</td>
+		   					<td th:text="${invoice.customer}"></td>
+		   					<td class="text-center" th:text="${{invoice.duedate}}"></td>
+		   					<td class="text-right" th:text="|€ ${{invoice.total}}|"></td>
+		   					<td class="text-center" th:attr="data-role=${invoice.code}">
+		   						<span class="label" th:text="${invoice.status.description}"
+		   							th:classappend="${invoice.pending ? 'label-danger' : 'label-success'}"></span>
+		   					</td>
+		   					<td class="text-center">
+		   						<a class="btn btn-link btn-xs" th:href="@{/invoices/{code}(code=${invoice.code})}" 
+		   								title="Edit" rel="tooltip" data-placement="top">
+		   							<span class="glyphicon glyphicon-pencil"></span>
+		   						</a>
+		   						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalDeletionConfirmation"
+		   								th:attr="data-code=${invoice.code}, data-customer=${invoice.customer}"
+		   								title="Delete" rel="tooltip" data-placement="top">
+		   							<span class="glyphicon glyphicon-remove"></span>
+		   						</a>
+		   						<a class="btn btn-link btn-xs js-update-status" th:if="${invoice.pending}"
+		   								title="Receive" rel="tooltip" data-placement="top"
+		   								th:attr="data-code=${invoice.code}"
+		   								th:href="@{/invoices/{code}/receive(code=${invoice.code})}">
+		   							<span class="glyphicon glyphicon-check"></span>
+		   						</a>
+		   					</td>
+		   				</tr>
+		   				<tr>
+		   					<td colspan="6" th:if="${#lists.isEmpty(invoices)}">No customer was found.</td>
+		   				</tr>
+		   			</tbody>
+		   		</table>
+		   	</div>
+	   	</div>
+	   	
+	   	<div layout:include="DeleteDialog"></div>
+	   	
+	</div>
+</section>
+</html>

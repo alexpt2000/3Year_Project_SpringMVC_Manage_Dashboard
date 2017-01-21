@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutDefault">
+
+<head>
+	<title>Add Invoice</title>
+</head>
+
+<section layout:fragment="content">
+    <form class="form-horizontal" method="POST" th:action="@{/invoices}" th:object="${invoice}">
+    	<div layout:include="Messages"></div>
+    	<div layout:include="MessageError"></div>
+    
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<div class="clearfix">
+	   				<h1 class="panel-title aw-invoice-panel">New Invoice</h1>
+	   				<a class="btn btn-link aw-link-panel" th:href="@{/invoices}">Back to Invoices</a>
+	   			</div>
+    		</div>
+    		
+    		<div class="panel-body">
+    			<input type="hidden" th:field="*{code}"/>
+    		
+				<div class="form-group" th:classappend="${#fields.hasErrors('customer')} ? has-error">
+					<label for="customer" class="col-sm-2 control-label">Customer</label>
+					<div class="col-sm-4"> 
+						<input type="text" class="form-control" id="customer" th:field="*{customer}"/>
+					</div>
+				</div>
+				<div class="form-group" th:classappend="${#fields.hasErrors('duedate')} ? has-error">
+					<label for="duedate" class="col-sm-2 control-label">Due date</label>
+					<div class="col-sm-2">  
+						<input type="text" class="form-control"	id="duedate" th:field="*{duedate}"
+							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
+							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
+					</div>
+				</div>
+				<div class="form-group" th:classappend="${#fields.hasErrors('total')} ? has-error">
+					<label for="valor" class="col-sm-2 control-label">Total</label>
+					<div class="col-sm-2">   
+						<input type="text" class="form-control js-currency" id="total" th:field="*{total}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="status" th:field="*{status}">
+							<option th:each="status : ${allStatusInvoice}" th:value="${status}" th:text="${status.description}"></option>
+                    	</select>
+                    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+			</div>
+    	</div>
+    </form>
+</section>
+</html>
