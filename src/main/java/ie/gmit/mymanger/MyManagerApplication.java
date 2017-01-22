@@ -18,17 +18,17 @@ public class MyManagerApplication {
 		SpringApplication.run(MyManagerApplication.class, args);
 	}
 	
-//	@Bean
-//	public LocaleResolver localeResolver() {
-//		return new FixedLocaleResolver(new Locale("pt", "BR"));
-//	}
+	@Bean
+	public LocaleResolver localeResolver() {
+		return new FixedLocaleResolver(new Locale("pt", "BR"));
+	}
 	
 	@Configuration
 	public static class MvcConfig extends WebMvcConfigurerAdapter {
 		
 		@Override
 		public void addViewControllers(ViewControllerRegistry registry) {
-			registry.addRedirectViewController("/", "/invoices");
+			registry.addRedirectViewController("/", "/login");
 		}
 		
 	}

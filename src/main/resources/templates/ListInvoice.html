@@ -36,7 +36,7 @@
 	   		</form>
 	   		
 	   		<div class="table-responsive">
-		   		<table class="table table-bordered table-striped">
+		   		<table id="datatable" class="table table-bordered table-striped">
 		   			<thead>
 		   				<tr>
 		   					<th class="text-center col-md-1">#</th>
@@ -78,6 +78,9 @@
 		   				<tr>
 		   					<td colspan="6" th:if="${#lists.isEmpty(invoices)}">No customer was found.</td>
 		   				</tr>
+			
+		   				
+		   				
 		   			</tbody>
 		   		</table>
 		   	</div>
