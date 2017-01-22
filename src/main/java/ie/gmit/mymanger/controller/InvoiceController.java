@@ -63,14 +63,14 @@ public class InvoiceController {
 	}
 	
 	@RequestMapping("{code}")
-	public ModelAndView edicao(@PathVariable("code") Invoice invoice) {
+	public ModelAndView edit(@PathVariable("code") Invoice invoice) {
 		ModelAndView mv = new ModelAndView(ADD_INVOICE); 
 		mv.addObject(invoice);
 		return mv;
 	}
 	
 	@RequestMapping(value="{code}", method = RequestMethod.DELETE)
-	public String excluir(@PathVariable Long code, RedirectAttributes attributes) {
+	public String delete(@PathVariable Long code, RedirectAttributes attributes) {
 		addInvoiceService.delete(code);
 		
 		attributes.addFlashAttribute("message", "Invoice deleted successfully!");
