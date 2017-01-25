@@ -25,6 +25,10 @@
     <!-- Custom Theme Style -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/custom.min.css}"/>
     
+    <!-- Datatables -->
+    <link rel="stylesheet" type="text/css" th:href="@{/datatables/dataTables.bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/datatables/buttons.bootstrap.min.css}"/>
+    
   </head>
 
   <body class="nav-md">
@@ -268,6 +272,33 @@
 	<script th:src="@{/js/jquery.maskMoney.min.js}"></script>
 	<script th:src="@{/js/mymanager.js}"></script>
 	
+	<!-- Datatables -->
+	
+	<script th:src="@{/datatables/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/datatables/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/datatables/dataTables.buttons.min.js}"></script>
+	<script th:src="@{/datatables/buttons.bootstrap.min.js}"></script>
+	<script th:src="@{/datatables/jszip.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake.min.js}"></script>
+	<script th:src="@{/datatables/vfs_fonts.js}"></script>
+	<script th:src="@{/datatables/buttons.html5.min.js}"></script>
+	<script th:src="@{/datatables/buttons.print.min.js}"></script>
+	<script th:src="@{/datatables/buttons.colVis.min.js}"></script>
+	
+	<script type="text/javascript" class="init">
+
+			$(document).ready(function() {
+				
+				var table = $('#datatable').DataTable( {
+					lengthChange: false,
+					buttons: [ 'copy', 'excel', 'pdf', 'csv', 'print', 'colvis' ]
+				} );
+				
+				table.buttons().container()
+					.appendTo( '#datatable_wrapper .col-sm-6:eq(0)' );
+			} );
+
+	</script>
 	
   </body>
 </html>

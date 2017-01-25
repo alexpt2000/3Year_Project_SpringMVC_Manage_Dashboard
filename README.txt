@@ -16,6 +16,16 @@ http://fontawesome.io/icons/
 
 Spring Security
 ======================================================
+Spring Projects
+http://projects.spring.io/spring-security/
+
 in28minutes - Spring Security Tutorial
 https://www.youtube.com/watch?v=Am0x4c_1KMc
 https://github.com/in28minutes/SpringMvcStepByStep
+
+Algaworks
+http://blog.algaworks.com/spring-security/?utm_source=facebook&utm_medium=social&utm_campaign=blog-posts
+
+Datatables
+======================================================
+https://datatables.net/extensions/buttons/examples/styling/bootstrap.html
