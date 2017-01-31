@@ -3,29 +3,51 @@ Add DEBUG em (application.properties)
 logging.level.root=DEBUG
 
 
+Icons
+======================================================
+http://fontawesome.io/icons/
+
+
+
 Dashboard
 ======================================================
-https://startbootstrap.com/template-categories/admin-dashboard/
-
 https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/
 https://colorlib.com/polygon/gentelella/index.html
 https://github.com/puikinsh/gentelella
 
-http://fontawesome.io/icons/
+
 
 
 Spring Security
 ======================================================
-Spring Projects
+**** Spring Projects
 http://projects.spring.io/spring-security/
 
-in28minutes - Spring Security Tutorial
+**** in28minutes - Spring Security Tutorial
 https://www.youtube.com/watch?v=Am0x4c_1KMc
 https://github.com/in28minutes/SpringMvcStepByStep
 
-Algaworks
+**** Algaworks
 http://blog.algaworks.com/spring-security/?utm_source=facebook&utm_medium=social&utm_campaign=blog-posts
+https://github.com/algaworks/artigo-spring-security
+
+
+
+
 
 Datatables
 ======================================================
 https://datatables.net/extensions/buttons/examples/styling/bootstrap.html
+
+
+
+SendEmail
+======================================================
+http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mail.html
+
+
+JPA one-to-many
+======================================================
+https://hellokoding.com/jpa-one-to-many-relationship-mapping-example-with-spring-boot-maven-and-mysql/
+https://hellokoding.com/jpa-one-to-many-relationship-mapping-example-with-spring-boot-hsql/
+https://www.youtube.com/watch?v=j1xxxrpbwME
