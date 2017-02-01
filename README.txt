@@ -20,6 +20,11 @@ https://github.com/puikinsh/gentelella
 
 Spring Security
 ======================================================
+http://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-javaconfig.html
+http://docs.spring.io/spring-security/site/docs/current/guides/html5//helloworld-boot.html
+
+https://spring.io/guides/gs/securing-web/
+
 **** Spring Projects
 http://projects.spring.io/spring-security/
 
