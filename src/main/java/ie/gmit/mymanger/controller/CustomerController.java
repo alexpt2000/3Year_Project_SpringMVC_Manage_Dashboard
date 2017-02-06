@@ -42,7 +42,6 @@ public class CustomerController {
 			return ADD_CUSTOMER;
 		}
 
-		System.out.println("Teste primeiro save");
 		addCustomerService.save(customer);
 		attributes.addFlashAttribute("message", "Customer saved successfully!");
 		return "redirect:/customers/newcustomer";
