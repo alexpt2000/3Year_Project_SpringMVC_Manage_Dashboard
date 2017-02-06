@@ -20,12 +20,6 @@ https://github.com/puikinsh/gentelella
 
 Spring Security
 ======================================================
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
 *** Solucao interesante
 http://websystique.com/spring-security/spring-security-4-logout-example/
 http://blog.algaworks.com/spring-security/?utm_source=facebook&utm_medium=social&utm_campaign=blog-posts
@@ -57,9 +51,11 @@ https://datatables.net/extensions/buttons/examples/styling/bootstrap.html
 
 
 
+
 SendEmail
 ======================================================
 http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mail.html
+
 
 
 JPA one-to-many

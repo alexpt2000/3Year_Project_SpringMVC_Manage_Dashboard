@@ -1,293 +1,196 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>My Manager | </title>
+<title>MyManager |</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" th:href="@{/font-awesome/css/font-awesome.min.css}"/>
-    
-    <!-- NProgress -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nprogress.css}"/>
-    
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
 
-    <!-- Custom Theme Style -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/custom.min.css}"/>
-    
-    <!-- Datatables -->
-    <link rel="stylesheet" type="text/css" th:href="@{/datatables/dataTables.bootstrap.min.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/datatables/buttons.bootstrap.min.css}"/>
-    
-  </head>
+<!-- Font Awesome -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/font-awesome/css/font-awesome.min.css}" />
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a th:href="@{/invoices}" class="site_title"><i class="fa fa-paw"></i> <span>My Manager</span></a>
-            </div>
+<!-- NProgress -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/nprogress.css}" />
 
-            <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img th:src="@{/images/img.jpg}" alt="..." class="img-circle profile_img"/>
-              </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>Alexander Souza</h2>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-            <!-- /menu profile quick info -->
+<!-- Custom Theme Style -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/custom.min.css}" />
 
-            <br />
+<!-- Datatables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/datatables/dataTables.bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/datatables/buttons.bootstrap.min.css}" />
 
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-user"></i> Customers <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                       <li>
-                           <a th:href="@{/customers}">List Customers</a>
-                       </li>
-                       <li>
-                           <a th:href="@{/customers/newcustomer}">Add Customer</a>
-                       </li>
-                    </ul>
-                  </li>
-                  
-                  <li><a><i class="fa fa-money"></i> Invoices <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                       <li>
-                           <a th:href="@{/invoices}">List Invoices</a>
-                       </li>
-                       <li>
-                           <a th:href="@{/invoices/newinvoice}">Add Invoice</a>
-                       </li>
-                    </ul>
-                  </li>                  
-                  
-                  <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
-                    </ul>
-                  </li>
-                  
-                </ul>
-              </div>
-              
+</head>
 
-            </div>
-            <!-- /sidebar menu -->
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<a th:href="@{/invoices}" class="site_title"><i
+							class="fa fa-paw"></i> <span>MyManager</span></a>
+					</div>
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
-          </div>
-        </div>
+					<div class="clearfix"></div>
 
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
+					<!-- menu profile quick info -->
+					<div class="profile clearfix">
+						<div class="profile_pic">
+							<img th:src="@{/images/img.jpg}" alt="..."
+								class="img-circle profile_img" />
+						</div>
+						<div class="profile_info" th:fragment="logout"
+							sec:authorize="isAuthenticated()">
+							<span>Welcome,</span>
+							<h2>
+								<i sec:authentication="name"></i>
+							</h2>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<!-- /menu profile quick info -->
 
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img th:src="@{/images/img.jpg}" alt=""/>Alexander Souza
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a th:href="@{/login}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                    
-                    
-					<form method="post" class="navbar-form navbar-right" th:action="@{/logout}">
-					  <button type="submit" class="btn btn-default">
-					    <span class="glyphicon glyphicon-log-out"></span> 
-					    Sair
-					  </button>
-					</form>
-                    
-                    
-                    
-                  </ul>
-                </li>
+					<br />
 
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>
-                        <span>
-                          <span>Alexander Souza</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>
-                        <span>
-                          <span>Alexander Souza</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>
-                        <span>
-                          <span>Alexander Souza</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>
-                        <span>
-                          <span>Alexander Souza</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <!-- /top navigation -->
+					<!-- sidebar menu -->
+					<div id="sidebar-menu"
+						class="main_menu_side hidden-print main_menu">
+						<div class="menu_section">
+							<h3>General</h3>
+							<ul class="nav side-menu">
+								<li><a><i class="fa fa-user"></i> Customers <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a th:href="@{/customers}">List Customers</a></li>
+										<li><a th:href="@{/customers/newcustomer}">Add
+												Customer</a></li>
+									</ul></li>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            
+								<li><a><i class="fa fa-money"></i> Invoices <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a th:href="@{/invoices}">List Invoices</a></li>
+										<li><a th:href="@{/invoices/newinvoice}">Add Invoice</a>
+										</li>
+									</ul></li>
 
-            <div class="clearfix"></div>
+								<li><a><i class="fa fa-bar-chart-o"></i> Data
+										Presentation <span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a href="chartjs.html">Chart JS</a></li>
+										<li><a href="chartjs2.html">Chart JS2</a></li>
+										<li><a href="morisjs.html">Moris JS</a></li>
+										<li><a href="echarts.html">ECharts</a></li>
+										<li><a href="other_charts.html">Other Charts</a></li>
+									</ul></li>
 
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_content">
-                  
-                  
-	                    <section layout:fragment="content">
-							<p>Main content</p>
-						</section>    
-						
-						
-						              
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /page content -->
+							</ul>
+						</div>
+					</div>
+					<!-- /sidebar menu -->
+				</div>
+			</div>
 
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu" th:fragment="logout"
+					sec:authorize="isAuthenticated()">
+					<nav>
+						<div class="nav toggle">
+							<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+						</div>
 
-    <!-- jQuery -->
+						<ul class="nav navbar-nav navbar-right">
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> <img th:src="@{/images/img.jpg}"
+									alt="" /> <span sec:authentication="name"></span> <span
+									class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<li><a href="javascript:;"> Profile</a></li>
+									<li><a href="javascript:;">Help</a></li>
+									<form method="post" class="navbar-form navbar-right"
+										th:action="@{/logout}">
+										<button type="submit" class="btn btn-default">
+											<span class="glyphicon glyphicon-log-out"></span> Logout
+										</button>
+									</form>
+								</ul></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="clearfix"></div>
+
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="x_panel">
+								<div class="x_content">
+									<section layout:fragment="content">
+										<p>Main content</p>
+									</section>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /page content -->
+
+			<!-- footer content -->
+			<footer>
+				<div class="pull-right">
+					MyManager - Invoice  <a
+						href="http://gmit.ie">GMIT</a>
+				</div>
+				<div class="clearfix"></div>
+			</footer>
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<!-- jQuery -->
 	<script th:src="@{/js/jquery.js}"></script>
-	
-    <!-- Bootstrap -->
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    
-    <!-- FastClick -->
-    <script th:src="@{/js/fastclick.js}"></script>
-    
-    <!-- NProgress -->
-    <script th:src="@{/js/nprogress.js}"></script>
-    
-    <!-- Custom Theme Scripts -->
-    <script th:src="@{/js/custom.min.js}"></script>
-    <script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+
+	<!-- Bootstrap -->
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+	<!-- FastClick -->
+	<script th:src="@{/js/fastclick.js}"></script>
+
+	<!-- NProgress -->
+	<script th:src="@{/js/nprogress.js}"></script>
+
+	<!-- Custom Theme Scripts -->
+	<script th:src="@{/js/custom.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
 	<script th:src="@{/js/bootstrap-datepicker.pt-BR.min.js}"></script>
 	<script th:src="@{/js/jquery.maskMoney.min.js}"></script>
 	<script th:src="@{/js/mymanager.js}"></script>
-	
+
 	<!-- Datatables -->
-	
+
 	<script th:src="@{/datatables/jquery.dataTables.min.js}"></script>
 	<script th:src="@{/datatables/dataTables.bootstrap.min.js}"></script>
 	<script th:src="@{/datatables/dataTables.buttons.min.js}"></script>
@@ -298,21 +201,22 @@
 	<script th:src="@{/datatables/buttons.html5.min.js}"></script>
 	<script th:src="@{/datatables/buttons.print.min.js}"></script>
 	<script th:src="@{/datatables/buttons.colVis.min.js}"></script>
-	
+
 	<script type="text/javascript" class="init">
+		$(document).ready(
+				function() {
 
-			$(document).ready(function() {
-				
-				var table = $('#datatable').DataTable( {
-					lengthChange: false,
-					buttons: [ 'copy', 'excel', 'pdf', 'csv', 'print', 'colvis' ]
-				} );
-				
-				table.buttons().container()
-					.appendTo( '#datatable_wrapper .col-sm-6:eq(0)' );
-			} );
+					var table = $('#datatable').DataTable(
+							{
+								lengthChange : false,
+								buttons : [ 'copy', 'excel', 'pdf', 'csv',
+										'print', 'colvis' ]
+							});
 
+					table.buttons().container().appendTo(
+							'#datatable_wrapper .col-sm-6:eq(0)');
+				});
 	</script>
-	
-  </body>
+
+</body>
 </html>
