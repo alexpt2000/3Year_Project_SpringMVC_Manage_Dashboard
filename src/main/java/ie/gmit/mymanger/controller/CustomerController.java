@@ -17,15 +17,28 @@ import ie.gmit.mymanger.model.Customer;
 import ie.gmit.mymanger.repository.filter.CustomerFilter;
 import ie.gmit.mymanger.service.AddCustomerService;
 
+
+/**
+ * The Class CustomerController.
+ * 
+ * All Requests relates to customers will be calling in this method
+ */
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
 
+	// Name of page
 	private static final String ADD_CUSTOMER = "AddCustomer";
+
 
 	@Autowired
 	private AddCustomerService addCustomerService;
 
+	/**
+	 * New customer.
+	 *
+	 * @return the model and view, to add a new customer
+	 */
 	@RequestMapping("/newcustomer")
 	public ModelAndView newCustomer() {
 		ModelAndView mv = new ModelAndView(ADD_CUSTOMER);
@@ -33,21 +46,34 @@ public class CustomerController {
 		return mv;
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param customer, all values
+	 * @param errors, carry errors from bean customer
+	 * @param attributes, passing msg between pages
+	 * @return Customer list
+	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String save(@Validated Customer customer, Errors errors, RedirectAttributes attributes) {
 		
-		System.out.println("Recebendo post");
 		
 		if (errors.hasErrors()) {
 			return ADD_CUSTOMER;
 		}
 
-		addCustomerService.save(customer);
-		attributes.addFlashAttribute("message", "Customer saved successfully!");
+		addCustomerService.save(customer); // Save the object
+		attributes.addFlashAttribute("message", "Customer saved successfully!"); // Pass MSG
 		return "redirect:/customers/newcustomer";
 
 	}
 
+	/**
+	 * Search.
+	 *
+	 * @param filter the filter
+	 * @return the model and view
+	 */
 	@RequestMapping
 	public ModelAndView search(@ModelAttribute("filter") CustomerFilter filter) {
 		List<Customer> allCustomers = addCustomerService.Filter(filter);
@@ -57,6 +83,12 @@ public class CustomerController {
 		return mv;
 	}
 
+	/**
+	 * Edits the.
+	 *
+	 * @param customer the customer
+	 * @return the model and view
+	 */
 	@RequestMapping("{customerid}")
 	public ModelAndView edit(@PathVariable("customerid") Customer customer) {
 		ModelAndView mv = new ModelAndView(ADD_CUSTOMER);
@@ -64,6 +96,13 @@ public class CustomerController {
 		return mv;
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param customerid the customerid
+	 * @param attributes the attributes
+	 * @return the string
+	 */
 	@RequestMapping(value = "{curtomerid}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable Long customerid, RedirectAttributes attributes) {
 		addCustomerService.delete(customerid);

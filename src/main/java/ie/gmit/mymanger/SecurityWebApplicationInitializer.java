@@ -4,10 +4,10 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 
 import ie.gmit.mymanger.config.SecurityConfig;
 
+/**
+ * The Class SecurityWebApplicationInitializer. Will call start the security into system
+ */
 public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
-//	
-//    public SecurityWebApplicationInitializer() {
-//        super(SecurityConfig.class);
-//    }
+
 
 }

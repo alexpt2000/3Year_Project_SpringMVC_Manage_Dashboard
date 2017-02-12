@@ -16,19 +16,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		  http
 		    .authorizeRequests()
-		        .antMatchers("/js/**", "/css/**").permitAll()
-		        .antMatchers("/customers/newcustomer").hasRole("ADMIN")
-		        .antMatchers("/customers").hasRole("USER")
-		        .antMatchers("/invoices/**").hasRole("USER")
+		        .antMatchers("/js/**", "/css/**").permitAll()  // Allow all Javascript file and css
+		        .antMatchers("/customers/newcustomer").hasRole("ADMIN") // Custom roles for ADMIN users
+		        .antMatchers("/customers").hasRole("USER") //Set access to users
+		        .antMatchers("/invoices/**").hasRole("USER")  
 		    .and()
 		    .formLogin()
-		        .loginPage("/login").permitAll()
+		        .loginPage("/login").permitAll() // Call login page to provide access.
 		        .and()
 		        .rememberMe();
 	}
-
+    
+    
+    // Method provide list of users
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+    	
+    	// Users in memory
         auth.inMemoryAuthentication().withUser("alex").password("123").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("123").roles("USER", "ADMIN");
 
