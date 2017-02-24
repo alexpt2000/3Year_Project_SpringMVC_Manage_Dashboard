@@ -32,6 +32,7 @@ public class MyManagerApplication {
 	 * Solve differents format number for differents country
 	 *
 	 * @return Will Return Portuguese Brazil
+	 * 
 	 */
 	@Bean
 	public LocaleResolver localeResolver() {
