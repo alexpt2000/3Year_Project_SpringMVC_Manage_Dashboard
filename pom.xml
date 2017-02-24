@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.algaworks</groupId>
-	<artifactId>cobranca</artifactId>
+	<groupId>ie.gmit</groupId>
+	<artifactId>MayManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Algaworks_SpringMVC_Cobranca</name>
+	<name>MyManager_SpringMVC</name>
 	<description></description>
 
 	<parent>
@@ -66,12 +66,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-
-		  <dependency>
+		
+		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>	
 			<version>2.1.2.RELEASE</version>
-		  </dependency>
+		</dependency>
 
 
 	</dependencies>
