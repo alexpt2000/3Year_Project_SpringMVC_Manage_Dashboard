@@ -103,9 +103,9 @@ public class CustomerController {
 	 * @param attributes the attributes
 	 * @return the string
 	 */
-	@RequestMapping(value = "{curtomerid}", method = RequestMethod.DELETE)
-	public String delete(@PathVariable Long customerid, RedirectAttributes attributes) {
-		addCustomerService.delete(customerid);
+	@RequestMapping(value = "{code}", method = RequestMethod.DELETE)
+	public String delete(@PathVariable Long code, RedirectAttributes attributes) {
+		addCustomerService.delete(code);
 
 		attributes.addFlashAttribute("message", "Customer deleted successfully!");
 		return "redirect:/customers";
