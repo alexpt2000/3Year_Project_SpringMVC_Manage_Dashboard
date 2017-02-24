@@ -1,9 +1,11 @@
 package ie.gmit.mymanger.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -16,7 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ie.gmit.mymanger.model.StatusInvoice;
+import ie.gmit.mymanger.model.Customer;
 import ie.gmit.mymanger.model.Invoice;
+import ie.gmit.mymanger.model.ListCustomerName;
+import ie.gmit.mymanger.repository.filter.CustomerFilter;
 import ie.gmit.mymanger.repository.filter.InvoiceFilter;
 import ie.gmit.mymanger.service.AddInvoiceService;
 
@@ -78,10 +83,22 @@ public class InvoiceController {
 		return "redirect:/invoices";
 	}
 	
+	//@Secured("ADMIN")
 	@RequestMapping(value = "/{code}/receive", method = RequestMethod.PUT)
 	public @ResponseBody String receive(@PathVariable Long code) {
 		return addInvoiceService.receive(code);
 	}
+
+	
+	@ModelAttribute("allCustomersInvoice")
+	public ArrayList<ListCustomerName> allCustomersInvoice() {		
+		ArrayList<ListCustomerName> customerList = new ArrayList<ListCustomerName>();		
+		customerList.add(new ListCustomerName("Alex"));
+		customerList.add(new ListCustomerName("Vanessa"));
+	
+		return customerList;
+	}
+	
 	
 	@ModelAttribute("allStatusInvoice")
 	public List<StatusInvoice> allStatusInvoice() {
