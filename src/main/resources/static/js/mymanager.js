@@ -1,4 +1,4 @@
-$('#modalDeletionConfirmation').on('show.bs.modal', function(event) {
+$('#modalInvoiceDeletionConfi').on('show.bs.modal', function(event) {
 	var button = $(event.relatedTarget);
 	
 	var codeInvoice = button.data('code');
@@ -13,6 +13,23 @@ $('#modalDeletionConfirmation').on('show.bs.modal', function(event) {
 	form.attr('action', action + codeInvoice);
 	
 	modal.find('.modal-body span').html('Are you sure you want to delete Invoice <strong> - ' + customerInvoice + '</strong>?');
+});
+
+$('#modalCustomerDeletionConfi').on('show.bs.modal', function(event) {
+	var button = $(event.relatedTarget);
+	
+	var codeCustomer = button.data('code');
+	var customerName = button.data('customer');
+	
+	var modal = $(this);
+	var form = modal.find('form');
+	var action = form.data('url-base');
+	if (!action.endsWith('/')) {
+		action += '/';
+	}
+	form.attr('action', action + codeCustomer);
+	
+	modal.find('.modal-body span').html('Are you sure you want to delete Customer <strong> - ' + customerName + '</strong>?');
 });
 
 $(function() {

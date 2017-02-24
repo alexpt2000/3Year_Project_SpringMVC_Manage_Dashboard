@@ -71,6 +71,7 @@ public class InvoiceController {
 	
 	@RequestMapping(value="{code}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable Long code, RedirectAttributes attributes) {
+		System.out.println("Primeiro Delete");
 		addInvoiceService.delete(code);
 		
 		attributes.addFlashAttribute("message", "Invoice deleted successfully!");

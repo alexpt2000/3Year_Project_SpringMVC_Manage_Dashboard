@@ -27,6 +27,7 @@ public class AddInvoiceService {
 	}
 
 	public void delete(Long codigo) {
+		System.out.println("Delete ok");
 		invoices.delete(codigo);
 	}
 

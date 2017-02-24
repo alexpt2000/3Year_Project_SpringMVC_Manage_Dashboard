@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div class="modal fade" id="modalInvoiceDeletionConfi" tabindex="-1" data-keyboard="false" data-backdrop="static">
+	<div class="modal-dialog">
+		<form th:action="@{/invoices}" th:attr="data-url-base=@{/invoices}" method="POST">
+			<input type="hidden" name="_method" value="DELETE"/>
+			
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Are you sure?</h4>
+				</div>
+				
+				<div class="modal-body">
+					<span>Are you sure you want to delete the invoice?</span>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-primary">Delete</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+	
+</html>

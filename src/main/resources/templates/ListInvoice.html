@@ -48,7 +48,7 @@
 		   								title="Edit" rel="tooltip" data-placement="top">
 		   							<span class="glyphicon glyphicon-pencil"></span>
 		   						</a>
-		   						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalDeletionConfirmation"
+		   						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalInvoiceDeletionConfi"
 		   								th:attr="data-code=${invoice.code}, data-customer=${invoice.customer}"
 		   								title="Delete" rel="tooltip" data-placement="top">
 		   							<span class="glyphicon glyphicon-remove"></span>
@@ -68,7 +68,7 @@
 		   	</div>
 	   	</div>
 	   	
-	   	<div layout:include="DeleteDialog"></div>
+	   	<div layout:include="DeleteInvoiceDialog"></div>
 	   	
 	</div>
 </section>
