@@ -1,7 +1,7 @@
 package ie.gmit.mymanger.model;
 
 public class ListCustomerName {
-	
+
 	private String CustomerName;
 
 	public ListCustomerName(String customerName) {
@@ -15,7 +15,5 @@ public class ListCustomerName {
 	public void setCustomerName(String customerName) {
 		CustomerName = customerName;
 	}
-	
-	
 
 }

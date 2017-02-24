@@ -9,44 +9,40 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-
 @Entity
 public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long customerid;
-	
+
 	@NotEmpty(message = "Customer is required")
 	@Size(max = 60, message = "The customer can not contain more than 60 characters")
 	private String customername;
-	
+
 	@Size(max = 60)
 	private String address1;
-	
+
 	@Size(max = 60)
 	private String address2;
-	
+
 	@Size(max = 25)
 	private String city;
-	
+
 	@Size(max = 25)
 	private String stateprovince;
-	
+
 	@Size(max = 25)
 	private String zipcode;
-	
+
 	@Size(max = 25)
 	private String country;
-	
+
 	@Size(max = 25)
 	private String phonenumber;
 
 	@Size(max = 25)
 	private String email;
-
-	
-
 
 	public Long getCustomerid() {
 		return customerid;

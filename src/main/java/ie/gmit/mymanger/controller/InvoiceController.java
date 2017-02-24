@@ -83,7 +83,6 @@ public class InvoiceController {
 		return "redirect:/invoices";
 	}
 	
-	//@Secured("ADMIN")
 	@RequestMapping(value = "/{code}/receive", method = RequestMethod.PUT)
 	public @ResponseBody String receive(@PathVariable Long code) {
 		return addInvoiceService.receive(code);

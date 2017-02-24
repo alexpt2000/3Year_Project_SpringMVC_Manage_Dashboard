@@ -20,32 +20,30 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
-
 @Entity
 public class Invoice {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long code;
-	
+
 	@NotEmpty(message = "Customer is required")
 	@Size(max = 60, message = "The customer can not contain more than 60 characters")
 	private String customer;
-	
+
 	@NotNull(message = "Due date is mandatory")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date duedate;
-	
+
 	@NotNull(message = "Total is mandatory")
 	@DecimalMin(value = "0.01", message = "Total can not be less than 0.01")
 	@DecimalMax(value = "9999999.99", message = "Total can not be greater than 9.999.999,99")
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal total;
-	
+
 	@Enumerated(EnumType.STRING)
 	private StatusInvoice status;
-	
 
 	public Long getCode() {
 		return code;
@@ -86,7 +84,7 @@ public class Invoice {
 	public void setStatus(StatusInvoice status) {
 		this.status = status;
 	}
-	
+
 	public boolean isPending() {
 		return StatusInvoice.PENDING.equals(this.status);
 	}
