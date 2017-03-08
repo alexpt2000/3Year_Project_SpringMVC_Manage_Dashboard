@@ -9,23 +9,42 @@ import ie.gmit.mymanger.model.Customer;
 import ie.gmit.mymanger.repository.Customers;
 import ie.gmit.mymanger.repository.filter.CustomerFilter;
 
+/**
+ * The Class AddCustomerService.
+ */
 @Service
 public class AddCustomerService {
 
+	/** The customers. */
 	@Autowired
 	private Customers customers;
 
+	/**
+	 * Save. Into Database
+	 *
+	 * @param customer the customer
+	 */
 	public void save(Customer customer) {
 
-		System.out.println("Teste Save");
 		customers.save(customer);
 
 	}
 
+	/**
+	 * Delete. Customer from database
+	 *
+	 * @param customerid the customerid
+	 */
 	public void delete(Long customerid) {
 		customers.delete(customerid);
 	}
 
+	/**
+	 * Filter. Geting Customer from Database
+	 *
+	 * @param filter the filter
+	 * @return the list whit customers
+	 */
 	public List<Customer> Filter(CustomerFilter filter) {
 		String customername = filter.getCustomer() == null ? "%" : filter.getCustomer();
 		return customers.findByCustomernameContaining(customername);
