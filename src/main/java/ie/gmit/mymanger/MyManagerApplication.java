@@ -28,7 +28,7 @@ public class MyManagerApplication {
 	}
 
 	/**
-	 * Solve differents format number for differents country
+	 * Solve different format number for different country
 	 *
 	 * @return Will Return Portuguese Brazil
 	 * 
