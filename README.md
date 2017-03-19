@@ -4,7 +4,7 @@
 
 
 ### Screenshot
-![](https://github.com/alexpt2000gmit/3Year_Project_SpringMVC_Manage_Dashboard/blob/master/screenshot/invoices.png)
+![](https://github.com/alexpt2000gmit/3Year_Project_SpringMVC_Manage_Dashboard/blob/master/screenshot/initial.gif)
 
 ### Responsive web design
 ![](https://github.com/alexpt2000gmit/3Year_Project_SpringMVC_Manage_Dashboard/blob/master/screenshot/phone.png)
