@@ -4,6 +4,7 @@
  * @author Alexander Souza - G00317835
  * @version 1.0
  * @since   15/01/2017
+ * 
  */
 
 package ie.gmit.mymanger;
