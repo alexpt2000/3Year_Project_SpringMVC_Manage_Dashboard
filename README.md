@@ -6,8 +6,9 @@ Pages
 
 
 ## Application deployed on Amazon
-![](https://a0.awsstatic.com/main/images/logos/aws_logo_179x109.gif)
 ### http://54.210.4.37:8080/mymanager/
+![](https://a0.awsstatic.com/main/images/logos/aws_logo_179x109.gif)
+
 
 
 
